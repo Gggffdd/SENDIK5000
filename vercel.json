@@ -6,8 +6,8 @@
       "use": "@vercel/python"
     },
     {
-      "src": "static/**",
-      "use": "@vercel/static"
+      "src": "build.sh",
+      "use": "@vercel/static-build"
     }
   ],
   "routes": [
@@ -20,12 +20,5 @@
       "dest": "/app.py"
     }
   ],
-  "env": {
-    "PYTHON_VERSION": "3.9"
-  },
-  "build": {
-    "env": {
-      "PYTHON_VERSION": "3.9"
-    }
-  }
+  "outputDirectory": "public"
 }
