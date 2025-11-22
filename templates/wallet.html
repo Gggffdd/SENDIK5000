@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кошелек - CryptoPro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <h1>💰 Кошелек</h1>
+                <div class="user-info" id="userInfo">
+                    <span>Загрузка...</span>
+                </div>
+            </div>
+        </header>
 
+        <main class="main-content">
+            <div class="wallet-container">
+                <div class="balance-card">
+                    <h2>Общий баланс</h2>
+                    <div class="amount" id="totalBalance">$0.00</div>
+                    <div class="subtitle">Эквивалент в USD</div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="showDepositModal()">
+                        📥 Депозит
+                    </button>
+                    <button class="btn btn-secondary" onclick="showWithdrawModal()">
+                        📤 Вывод
+                    </button>
+                    <button class="btn btn-secondary" onclick="showTransactionHistory()">
+                        📋 История
+                    </button>
+                    <button class="btn btn-secondary" onclick="navigateTo('/exchange')">
+                        🔄 Обмен
+                    </button>
+                </div>
+
+                <div class="assets-section">
+                    <h3>Ваши активы</h3>
+                    <div class="assets-list" id="assetsList">
+                        <div class="loading">Загрузка активов...</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <nav class="bottom-nav">
+            <button class="nav-btn" onclick="navigateTo('/')">🏠</button>
+            <button class="nav-btn" onclick="navigateTo('/trading')">📊</button>
+            <button class="nav-btn active" onclick="navigateTo('/wallet')">💰</button>
+            <button class="nav-btn" onclick="navigateTo('/portfolio')">📈</button>
+        </nav>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
